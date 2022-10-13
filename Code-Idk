@@ -1,0 +1,100 @@
+package org.firstinspires.ftc.teamcode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
+@Autonomous
+public class AutonomousPractice1 extends LinearOpMode {
+  private DcMotor left;
+  private DcMotor right;
+  
+  private final double wheelCircumference = 90*3.14;
+  private final double gearReduction = 3.61*5.23;
+  //values can be found with google (ex. https://www.revrobotics.com/rev-41-1603/)
+  private final double motorCounts = 28.0;
+  
+  private final double countsPerWheelRev = countsPerRev * driveGearReduction;
+  private final double RevPerMM = countsPerWheelRev/Wheel_Circumference;
+  
+  public void runOpMode(){
+    left = hardwareMap.get(DcMotor, "leftMotor");
+    right = hardwareMap.get(DcMotor, "rightMotor");
+    
+    int tgt = tickstoDistance(609 * RevPerMM);
+    
+    private DistanceSensor front;
+    
+    while (front.getDistance(DistanceUnit.M)>readDistance){
+      telemetry.addData("reading");
+      left.setPower(1.0);
+      right.setPower(1.0);
+      telemetry.update();
+    }
+    
+    right.setPower(0);
+    left.setPower(0);
+    
+    private ElapsedTime count = new ElapsedTime()
+    int time = count.seconds();
+    
+    while (time <= 2){
+      right.setPower(-0.5);
+      left.setPower(0.5);
+    }
+    
+    right.setPower(0);
+    left.setPower(0);
+    count.reset();
+    time = count;
+    
+    while (time <= 1){
+      //this will probably break a lot of things with no delay lol
+    }
+    
+    left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    
+    left.setTargetPosition(tgt);
+    right.setTargetPosition(tgt);
+    
+    left.setMode(RUN_TO_POSITION);
+    right.setMode(RUN_TO_POSITION);
+    
+    left.setPower(1.0);
+    right.setPower(1.0);
+    
+    count.reset();
+    time = count;
+    while (time <= 2){
+      right.setPower(0.5);
+      left.setPower(-0.5);
+    }
+    
+    right.setPower(0);
+    left.setPower(0);
+    count.reset();
+    time = count;
+    
+    tgt = ticksToDistance(1500 * RevPerMM);
+    
+    left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    
+    left.setTargetPosition(tgt);
+    right.setTargetPosition(tgt);
+    
+    left.setMode(RUN_TO_POSITION);
+    right.setMode(RUN_TO_POSITION);
+    
+    left.setPower(1.0);
+    right.setPower(1.0);
+    
+    while(opModeIsActive() && left1.isBusy() && left2.isBusy() && right1.isBusy() && right2.isBusy())
+    {
+      telemtry.addData("Position: ", "left1.getCurrentPosition());
+    }
+  }
