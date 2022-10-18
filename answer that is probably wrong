@@ -1,5 +1,32 @@
 //imports
 @TeleOp
+Public class 2022TeleOp extends LinearOpMode(){
+	Private DcMotor left;
+	Private DcMotor right;
+	Private DcMotor slide;
+	Private Servo intake;
+	waitForStart();
+	Public void runOpMode(){
+	left=hardwareMap.get(DcMotor.class,”left”);
+	right=hardwareMap.get(DcMotor.class,”right”);
+	intake=hardwareMap.get(Servo.class,”intake”);
+	slide=hardwareMap.get(DcMotor.class,”slide”);
+	}
+}
+		left.setPower(gamepad1.left_stick_y);
+		right.setPower(gamepad1.left_stick_y);
+			if(gamepad1. left _bumper)
+				slide.setPower(1.0);
+			if(gamepad.right_bumper);
+				slide.setmode(STOP_AND_RESET_ENCONDER);
+				slide.setTarget Position(7.00);
+				slide.setMode(RUN_TO_POSITION_);
+				slide.setPower(1.0);
+			if(gamepad1.a==”true”)
+				intake.setPosition(0);
+			Else
+				intake.setPosition(0.6);
+{
 
 DistanceSensor distance;
 int readDistance;
@@ -14,3 +41,4 @@ telemetry.update();
 while(time>turnTime) {
 left.setPower(1.0);
 right.setPower(-0.1);
+}
