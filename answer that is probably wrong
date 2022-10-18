@@ -1,3 +1,5 @@
+@TeleOp
+
 DistanceSensor distance;
 int readDistance;
 while(distance.getDistance(DistanceUnit.CM)>readDistance))
